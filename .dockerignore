@@ -1,0 +1,23 @@
+# General
+contrigutors.txt
+.gitignore
+.editorconfig
+README.md
+
+# ignore .git and .cache folders
+.git
+.cache
+.vscode
+.vs
+.github
+
+# Coverage
+coverage
+
+# Dist
+dist
+**/dist/
+
+# npm
+node_modules
+**/node_modules/
