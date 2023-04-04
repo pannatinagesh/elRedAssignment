@@ -21,7 +21,7 @@ const handleChange = (e:any) => {
 };
 
     return (
-       <Paper sx={{p:3}} elevation={3}>
+       <Paper sx={{p:3, width:'100%', overflow:'auto'}} elevation={3} >
         <Typography variant='h6' sx={{pb:'30px'}} >About Us</Typography>
 
         <Stack direction={'row'} spacing={3}>

@@ -29,13 +29,13 @@ const handleChange = (e:any) => {
         <>
         <Typography variant='h5'>Your Privacy Matters  <IconButton onClick={handleClick} sx={{width:'50px', height:'50px', color:'#B72136'}}><Iconify icon="ic:baseline-mode-edit" /></IconButton></Typography>
          <br />
-         <Grid container spacing={2}>
-            <Grid item xs={8}>
+         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid item xs={12} sm={8} md={8}>
         {selectedIndex?<Typography variant='h6'>{selectedIndex}. &nbsp;{header}</Typography>:null}
         {edit?<TextField multiline fullWidth label="" id="fullWidth" value={context} onChange={handleChange} onBlur={()=>setEdit(false)} />:
         <Typography>{context}</Typography>}
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} sm={4} md={4}>
             <Paper variant="outlined" elevation={3}>
             <Typography variant='h6' sx={{p:'8px 16px'}}>Table of Contents:</Typography>
             

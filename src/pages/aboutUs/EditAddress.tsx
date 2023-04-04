@@ -22,7 +22,7 @@ const handleClose = () => {
     setData(list)
  }
     return (
-        <Drawer anchor="right" open={props.record.open} onClose={handleClose} sx={{ '& .MuiDrawer-paper': { minWidth: '30%', maxWidth: '30%' } }}>
+        <Drawer anchor="right" open={props.record.open} onClose={handleClose} sx={{ '& .MuiDrawer-paper': { minWidth: '300px', maxWidth: '300px' } }}>
         <Paper sx={{p:3}}>
         <Stack direction={'row'} spacing={2}>
        <IconButton size="medium" color="inherit" onClick={handleClose} aria-label="close"><KeyboardBackspaceIcon /> </IconButton>

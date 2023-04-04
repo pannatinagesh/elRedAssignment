@@ -45,10 +45,10 @@ export default function TabView() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%', minWidth:'250px' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} sx={{ '& .Mui-selected': {color: 'currentcolor !important' },
-         '& .MuiTabs-indicator': { backgroundColor: '#B72136' }}}>
+         '& .MuiTabs-indicator': { backgroundColor: '#B72136' }}} variant="scrollable" scrollButtons="auto">
           <Tab label="Info" {...a11yProps(0)} />
           <Tab label="FAQ" {...a11yProps(1)} />
           <Tab label="Complaints and feedback" {...a11yProps(2)} />

@@ -11,13 +11,17 @@ const Info = () => {
 const [state, setState] = useState({contact: false, address: false, media: false, statement: false})
 const [data, setData]:any = useState([]);
 const [contactEmail, setContactEmail] = useState([]);
+const [contactPhone, setContactPhone] = useState([]);
 const [addressData, setAddressData]:any = useState({});
 const [statementData, setStatementData]:any = useState([]);
 
 const GetEmails = () => {
     const list:any = []
+    const listPhone:any = []
     data.map((d:any, i:number)=> { d.email.map((v:any)=> { if(v) list.push(v) }) })
+    data.map((d:any, i:number)=> { d.email.map((v:any)=> { if(v) listPhone.push(v) }) })
    setContactEmail(list)
+   setContactPhone(listPhone)
 }
 useEffect(()=> {
     GetEmails()
@@ -42,8 +46,8 @@ const handleStatementData = (dataStatement:any) => {
 }
     return (
         <>
-        <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }} minWidth={'250px'}>
+        <Grid item xs={4} sm={4} md={4}>
         <Card variant="outlined" sx={{height:'100%'}}>
       <CardContent>
       <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
@@ -55,12 +59,12 @@ const handleStatementData = (dataStatement:any) => {
       <Typography gutterBottom > <Iconify icon='material-symbols:mail-rounded' sx={{color:'rgba(0, 0, 0, 0.38)'}} />&nbsp; {contactEmail.length > 0 ? `${contactEmail[0]} / ${contactEmail[1]}`: null}</Typography>
       {contactEmail.length > 1 ? <Avatar sx={{color: '#B72136', backgroundColor:'rgba(255, 72, 66, 0.16)', fontSize:'1rem'}}>+{contactEmail.length -1}</Avatar> :null}
       </Stack>
-      <Typography gutterBottom alignItems={'center'} display={'flex'}> <Iconify icon='ic:round-phone' sx={{color:'rgba(0, 0, 0, 0.38)'}} />&nbsp; +91 8523423444 / 8090234234</Typography>
+      <Typography gutterBottom alignItems={'center'} display={'flex'}> <Iconify icon='ic:round-phone' sx={{color:'rgba(0, 0, 0, 0.38)'}} />&nbsp; +91 {contactPhone.length > 0 ? `${contactPhone[0]} / ${contactPhone[1]}`: null}</Typography>
     </CardContent>  
         </Card>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={4} sm={4} md={4}>
         <Card variant="outlined" sx={{height:'100%'}}>
       <CardContent>
       <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
@@ -75,7 +79,7 @@ const handleStatementData = (dataStatement:any) => {
         </Card>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={4} sm={4} md={4}>
         <Card variant="outlined" sx={{height:'100%'}}>
       <CardContent>
       <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
@@ -90,7 +94,7 @@ const handleStatementData = (dataStatement:any) => {
         </Card>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={4} sm={4} md={4}>
         <Card variant="outlined" sx={{height:'100%'}}>
       <CardContent>
       <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>
@@ -119,7 +123,7 @@ const handleStatementData = (dataStatement:any) => {
         </Card>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={4} sm={4} md={4}>
         <Card variant="outlined" sx={{height:'100%'}}>
       <CardContent>
       <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={2}>

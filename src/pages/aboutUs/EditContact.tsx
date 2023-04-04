@@ -3,8 +3,11 @@ import React, { useEffect, useState } from 'react';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import Iconify from '../../components/Iconify';
 import { contact } from '../../utils/DataSet';
+import useResponsive from '../../hooks/useResponsive';
 
 const EditConatct = (props:any) => {
+    const isDesktop = useResponsive('up', 'lg');
+    console.log(isDesktop)
     const [data, setData]:any = useState([]);
     const [edit, setEdit] = useState(false);
     const [editIndex, setEditIndex]:any = useState();
@@ -48,7 +51,7 @@ const handleDelete = (i:number) => {
     setData(list)
  }
     return (
-        <Drawer anchor="right" open={props.record.open} onClose={handleClose} sx={{ '& .MuiDrawer-paper': { minWidth: '30%', maxWidth: '30%' } }}>
+        <Drawer anchor="right" open={props.record.open} onClose={handleClose} sx={{ '& .MuiDrawer-paper': { minWidth: isDesktop?'30%':'300px', maxWidth: isDesktop?'30%':'300px' } }}>
         <Paper sx={{p:3}}>
         <Stack direction={'row'} spacing={2}>
        {edit ? <IconButton size="medium" color="inherit" onClick={()=>setEdit(false)} aria-label="close"><KeyboardBackspaceIcon /> </IconButton>:

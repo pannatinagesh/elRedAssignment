@@ -11,6 +11,7 @@ import WarningIcon from '@mui/icons-material/Warning';
 import { useParams } from 'react-router-dom';
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
+import useResponsive from '../../hooks/useResponsive';
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTHOpen = 20;
@@ -34,36 +35,38 @@ interface Props {
 }
 
 export default function DashboardNavbar({ onOpenSidebar , isOpenSidebarDesktop }: Props) {
-
+  const isDesktop = useResponsive('up', 'lg');
  const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
-  // color: 'red',
   WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
   backgroundColor: 'white',
   [theme.breakpoints.up('lg')]: {
-    width: `100%`,
+    width: `calc(100%)`,
   },
 }));
 
   return (
      <RootStyle>
       <ToolbarStyle>
+       <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
+          <Iconify icon="eva:menu-2-fill" />
+        </IconButton> 
       <Box sx={{ display: 'inline-flex', width:'20%', backgroundColor:'white' }}>
       <img src="/Logo 1.png" />
       </Box>
-        <div style={{width:'40%', display:'flex'}} >
+        {isDesktop ?<div style={{width:'40%', display:'flex'}} >
         <TextField label="" id="search" placeholder='Search...' variant="filled" size="small" fullWidth
         sx={{'& .MuiFilledInput-input': {p:'10px'}}}
           InputProps={{
             startAdornment: <InputAdornment position="start" sx={{m:'0px !important'}}><SearchIcon /></InputAdornment>
           }}
         />
-        </div>
+        </div> :null}
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-        <Button variant='contained' startIcon={<Iconify icon='bi:cart3'/>} sx={{backgroundColor:'black', color: 'white', p:'4px 30px'}}>Check out(200)</Button>
+        {isDesktop ? <Button variant='contained' startIcon={<Iconify icon='bi:cart3'/>} sx={{backgroundColor:'black', color: 'white', p:'4px 30px'}}>Check out(200)</Button>:null}
           <AccountPopover />
         </Stack>
       </ToolbarStyle>

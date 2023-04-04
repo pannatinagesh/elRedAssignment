@@ -29,6 +29,7 @@ interface Props {
 
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar, isOpenSidebarDesktop, onCloseSidebarDesktop }: Props) {
   const isDesktop = useResponsive('up', 'lg');
+  const { pathname } = useLocation();
 
   const RootStyle = styled('div')(({ theme }) => ({
     top: '115px',
@@ -39,6 +40,13 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar, isOpen
       width: isOpenSidebarDesktop ? DRAWER_WIDTHClose : DRAWER_WIDTHOpen,
     },
   }));
+
+  useEffect(() => {
+    if (isOpenSidebar) {
+      onCloseSidebar();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
 
   const renderContent = (
     <Scrollbar
@@ -67,20 +75,22 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar, isOpen
 
   return (
     <RootStyle>
-      {/* {!isDesktop && (
+      {!isDesktop && (
         <Drawer
-          open={isOpenSidebar}
+          open = {isOpenSidebar}
           onClose={onCloseSidebar}
           PaperProps={{
-            sx: { width: DRAWER_WIDTHOpen,
-              bgcolor: '#495057',
-              top:'115px',
-              marginLeft:'20px'},
+            sx: { width: '140px',
+              boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
+              top:'18%',
+              marginLeft:'20px',
+              height:'80%',
+              borderRadius: '8px'},
           }}
         >
           {renderContent}
         </Drawer>
-      )} */}
+      )}
 
       {isDesktop && (
         <Drawer

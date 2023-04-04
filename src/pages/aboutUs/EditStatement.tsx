@@ -42,7 +42,7 @@ const handleClose = () => {
  }
 
     return (
-        <Drawer anchor="right" open={props.record.open} onClose={handleClose} sx={{ '& .MuiDrawer-paper': { minWidth: '30%', maxWidth: '30%', pb: '40px' } }}>
+        <Drawer anchor="right" open={props.record.open} onClose={handleClose} sx={{ '& .MuiDrawer-paper': { minWidth: '300px', maxWidth: '300px', pb: '40px' } }}>
         <Paper sx={{p:3}}>
         <Stack direction={'row'} spacing={2} justifyContent="space-between" alignItems="center">
         <Stack direction={'row'} spacing={2}>

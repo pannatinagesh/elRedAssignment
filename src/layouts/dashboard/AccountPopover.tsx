@@ -9,6 +9,7 @@ import MenuPopover from '../../components/MenuPopover';
 import { dotCase, sentenceCase, capitalCase } from 'change-case';
 import React from 'react';
 import Iconify from '../../components/Iconify';
+import useResponsive from '../../hooks/useResponsive';
 
 // ----------------------------------------------------------------------
 
@@ -34,6 +35,8 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const anchorRef = useRef(null);
+  const isDesktop = useResponsive('between', 'lg', 'sm', 'lg');
+
   const location = useLocation();
   const [open, setOpen] = useState(null);
   const [account, setAccount]:any = useState({first_name: 'Nani', last_name: 'Nagesh', email:'pannatinagesh12345@gmail.com'});
@@ -54,8 +57,8 @@ export default function AccountPopover() {
 
   return (
     <>
-        <Avatar src='/profile.png'></Avatar>
-      <Typography sx={{color:'black'}}>User Admin</Typography>
+        {isDesktop?<Avatar src='/profile.png'></Avatar>:null}
+        {isDesktop? <Typography sx={{color:'black'}}>User Admin</Typography>:null}
       <IconButton ref={anchorRef} onClick={handleOpen}><Iconify icon='material-symbols:keyboard-arrow-down' /></IconButton>
 
       <MenuPopover
