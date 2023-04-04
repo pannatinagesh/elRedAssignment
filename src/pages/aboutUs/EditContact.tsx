@@ -7,7 +7,6 @@ import useResponsive from '../../hooks/useResponsive';
 
 const EditConatct = (props:any) => {
     const isDesktop = useResponsive('up', 'lg');
-    console.log(isDesktop)
     const [data, setData]:any = useState([]);
     const [edit, setEdit] = useState(false);
     const [editIndex, setEditIndex]:any = useState();

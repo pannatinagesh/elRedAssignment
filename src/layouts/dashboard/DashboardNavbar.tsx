@@ -36,6 +36,8 @@ interface Props {
 
 export default function DashboardNavbar({ onOpenSidebar , isOpenSidebarDesktop }: Props) {
   const isDesktop = useResponsive('up', 'lg');
+  const isDesktopCheckBox = useResponsive('up', 'sm');
+
  const RootStyle = styled(AppBar)(({ theme }) => ({
   boxShadow: 'none',
   backdropFilter: 'blur(6px)',
@@ -66,7 +68,7 @@ export default function DashboardNavbar({ onOpenSidebar , isOpenSidebarDesktop }
         <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-        {isDesktop ? <Button variant='contained' startIcon={<Iconify icon='bi:cart3'/>} sx={{backgroundColor:'black', color: 'white', p:'4px 30px'}}>Check out(200)</Button>:null}
+        {isDesktopCheckBox ? <Button variant='contained' startIcon={<Iconify icon='bi:cart3'/>} sx={{backgroundColor:'black', color: 'white', p:'4px 30px', '&:hover': {backgroundColor:'black', color: 'white'}}}>Check out(200)</Button>:null}
           <AccountPopover />
         </Stack>
       </ToolbarStyle>

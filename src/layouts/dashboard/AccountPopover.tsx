@@ -35,7 +35,8 @@ const MENU_OPTIONS = [
 
 export default function AccountPopover() {
   const anchorRef = useRef(null);
-  const isDesktop = useResponsive('between', 'lg', 'sm', 'lg');
+  const isDesktop = useResponsive('up', 'sm');
+  console.log(isDesktop)
 
   const location = useLocation();
   const [open, setOpen] = useState(null);
