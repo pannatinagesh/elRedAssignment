@@ -54,7 +54,7 @@ export default function DashboardNavbar({ onOpenSidebar , isOpenSidebarDesktop }
        <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton> 
-      <Box sx={{ display: 'inline-flex', width:'20%', backgroundColor:'white' }}>
+      <Box sx={{ display: 'inline-flex', width:'19%', backgroundColor:'white' }}>
       <img src="/Logo 1.png" />
       </Box>
         {isDesktop ?<div style={{width:'40%', display:'flex'}} >

@@ -6,6 +6,7 @@ import { ThemeProvider as MUIThemeProvider, createTheme, StyledEngineProvider } 
 //
 import palette from './palette';
 import shadows, { customShadows } from './shadows';
+import typography from './typography';
 
 // ----------------------------------------------------------------------
 
@@ -19,6 +20,7 @@ export default function ThemeProvider({ children }: Props) {
       palette,
       shape: { borderRadius: 8 },
       shadows,
+      typography,
       customShadows,
     }),
     []

@@ -1,13 +1,12 @@
 // @mui
-import { Button, Container, Typography, Stack , Paper, Card} from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { Container, Typography } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
   return (
     <Container maxWidth="xl">
-     <Typography variant='h5'>Dashboard</Typography>
+      <Typography variant='h5'>Dashboard</Typography>
     </Container>
   );
 }

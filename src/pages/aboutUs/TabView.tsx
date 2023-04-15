@@ -1,5 +1,5 @@
+import { Box, Tab, Tabs, Typography } from '@mui/material';
 import * as React from 'react';
-import { Tabs, Tab, Typography, Box } from '@mui/material';
 import Info from './Info';
 import Privacy from './Privacy';
 import TermsConditions from './TermsConditions';
@@ -45,10 +45,12 @@ export default function TabView() {
   };
 
   return (
-    <Box sx={{ width: '100%', minWidth:'250px' }}>
+    <Box sx={{ width: '100%', minWidth: '250px' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} sx={{ '& .Mui-selected': {color: 'currentcolor !important' },
-         '& .MuiTabs-indicator': { backgroundColor: '#B72136' }}} variant="scrollable" scrollButtons="auto">
+        <Tabs value={value} onChange={handleChange} sx={{
+          '& .Mui-selected': { color: 'currentcolor !important' },
+          '& .MuiTabs-indicator': { backgroundColor: '#B72136' }
+        }} variant="scrollable" scrollButtons="auto" allowScrollButtonsMobile>
           <Tab label="Info" {...a11yProps(0)} />
           <Tab label="FAQ" {...a11yProps(1)} />
           <Tab label="Complaints and feedback" {...a11yProps(2)} />

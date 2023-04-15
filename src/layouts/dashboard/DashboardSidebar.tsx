@@ -80,11 +80,11 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar, isOpen
           open = {isOpenSidebar}
           onClose={onCloseSidebar}
           PaperProps={{
-            sx: { width: '140px',
+            sx: { width: '80%',
               boxShadow: '0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12)',
-              top:'115px',
-              marginLeft:'20px',
-              height:'80%',
+              // top:'115px',
+              // marginLeft:'20px',
+              height:'100%',
               borderRadius: '8px'},
           }}
         >
